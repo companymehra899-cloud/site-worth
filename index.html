@@ -37,12 +37,6 @@
 
   <section class="wc-hero">
     <div class="wc-wrap">
-      <p class="wc-kicker">Live rank + modelled traffic</p>
-      <h1>Calculate website worth, traffic and estimated earnings</h1>
-      <p class="wc-lead">
-        Enter any domain. We pull live Tranco global rank, WHOIS age, DNS and server location,
-        then estimate daily visitors, pageviews, monthly ad revenue and sale value.
-      </p>
       <form id="search-form" class="wc-search">
         <input id="domain-input" type="text" placeholder="wikipedia.org or https://nytimes.com" autocomplete="off" required />
         <button type="submit" id="search-btn">Analyze traffic</button>
@@ -55,6 +49,12 @@
         <button class="wc-chip" type="button" data-demo="indiatimes.com">indiatimes.com</button>
       </p>
       <p id="status" class="wc-status" hidden></p>
+      <p class="wc-kicker">Live rank + modelled traffic</p>
+      <h1>Calculate website worth, traffic and estimated earnings</h1>
+      <p class="wc-lead">
+        Enter any domain. We pull live Tranco global rank, WHOIS age, DNS and server location,
+        then estimate daily visitors, pageviews, monthly ad revenue and sale value.
+      </p>
     </div>
   </section>
 
@@ -83,34 +83,6 @@
           </tbody>
         </table>
       </div>
-    </div>
-  </section>
-
-  <section id="how" class="wc-section wc-how">
-    <div class="wc-wrap">
-      <h2>How estimates are calculated</h2>
-      <div class="wc-howgrid">
-        <article class="wc-card">
-          <h3>1. Live global rank</h3>
-          <p>Tranco publishes a research ranking of the most visited websites. Rank 1 is roughly Google-scale traffic.</p>
-        </article>
-        <article class="wc-card">
-          <h3>2. Traffic model</h3>
-          <p>Daily unique visitors are modelled as 900M / rank, then converted to pageviews with a typical pages-per-visit curve.</p>
-        </article>
-        <article class="wc-card">
-          <h3>3. Ad RPM / CPM</h3>
-          <p>Revenue uses country CPM from the site's server location, adjusted for finance/tech vs wiki/news niches.</p>
-        </article>
-        <article class="wc-card">
-          <h3>4. Site worth</h3>
-          <p>Sale value is estimated at 6x yearly ad revenue, the same style of multiple public worth tools use.</p>
-        </article>
-      </div>
-      <p class="wc-note">
-        These numbers are estimates for research and comparison. They are not Google Analytics, AdSense or SE Ranking paid data.
-        Actual earnings depend on ads, subscriptions, SEO, geography and conversion.
-      </p>
     </div>
   </section>
 
