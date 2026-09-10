@@ -303,16 +303,33 @@ canvas { width: 100%; display: block; }
 .wc-pagehero {
   padding: 42px 0 8px;
   background: linear-gradient(#fffaf2, #f6f3ec);
+  text-align: left;
 }
 
 .wc-pagehero h1 {
   font-size: clamp(28px, 4vw, 44px);
   margin: 8px 0 10px;
-  max-width: 18ch;
+  max-width: none;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.wc-pagehero .wc-kicker,
+.wc-pagehero .wc-lead,
+.wc-pagehero .wc-meta {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none;
+}
+
+.wc-pagehero .wc-lead {
+  margin-top: 8px;
+  margin-bottom: 0;
 }
 
 .wc-prose {
-  max-width: 760px;
+  max-width: none;
   padding: 12px 0 48px;
 }
 
@@ -323,7 +340,7 @@ canvas { width: 100%; display: block; }
 .wc-prose ul, .wc-prose ol { margin: 0 0 16px 18px; }
 .wc-prose li { margin: 0 0 8px; }
 
-.wc-faq { max-width: 820px; padding: 8px 0 48px; }
+.wc-faq { max-width: none; padding: 8px 0 48px; }
 .wc-faq details {
   background: #fffdf8;
   border: 1px solid #e4dccb;
@@ -428,7 +445,8 @@ canvas { width: 100%; display: block; }
   .wc-money { font-size: 24px; }
   .wc-box li, .wc-row { flex-wrap: wrap; }
   .wc-pagehero { padding: 28px 0 8px; }
-  .wc-pagehero h1 { max-width: none; font-size: 28px; }
+  .wc-pagehero h1 { max-width: none; font-size: 28px; white-space: normal; }
+  .wc-pagehero .wc-lead { margin: 8px 0 0; }
   .wc-tablewrap { -webkit-overflow-scrolling: touch; }
   .wc-tablewrap th, .wc-tablewrap td { white-space: nowrap; }
   .wc-foot .wc-wrap { flex-direction: column; }
