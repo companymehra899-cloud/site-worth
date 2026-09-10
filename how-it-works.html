@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" class="wc">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How it works — WorthCheck</title>
+  <link rel="stylesheet" href="/wc.css?v=4" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="wc-nav">
+    <div class="wc-wrap">
+      <a class="wc-brand" href="/"><span class="wc-logo">W</span> WorthCheck</a>
+      <div class="wc-links">
+        <a href="/how-it-works">How it works</a>
+        <a href="/faq">FAQ</a>
+        <a href="/articles">Articles</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="wc-pagehero">
+    <div class="wc-wrap">
+      <p class="wc-kicker">Method</p>
+      <h1>How WorthCheck estimates traffic and earnings</h1>
+      <p class="wc-lead">A domain lookup is not a guess pulled from thin air. Each report mixes live public rank data with a published traffic and ad-revenue model.</p>
+    </div>
+  </section>
+
+  <div class="wc-wrap wc-prose">
+    <div class="wc-steps">
+      <article class="wc-step">
+        <div class="wc-num">1</div>
+        <div>
+          <h3>You enter a domain</h3>
+          <p>Type wikipedia.org or paste a full URL. WorthCheck cleans the host, drops www, and looks up the registrable domain.</p>
+        </div>
+      </article>
+      <article class="wc-step">
+        <div class="wc-num">2</div>
+        <div>
+          <h3>Live rank is fetched</h3>
+          <p>We query the Tranco list, a research ranking of the most visited websites. Rank 1 is Google-scale. If the site is not in Tranco, we fall back to a modelled rank so you still get a report.</p>
+        </div>
+      </article>
+      <article class="wc-step">
+        <div class="wc-num">3</div>
+        <div>
+          <h3>WHOIS, DNS and location</h3>
+          <p>RDAP gives registrar, created date and expiry. DNS gives IP. Geo lookup maps the server to a country, which later sets the ad CPM.</p>
+        </div>
+      </article>
+      <article class="wc-step">
+        <div class="wc-num">4</div>
+        <div>
+          <h3>Traffic is modelled from rank</h3>
+          <p>Daily unique visitors are estimated as 900 million divided by rank. Pages per visit drop as rank gets weaker. Daily pageviews = visitors x pages per visit.</p>
+        </div>
+      </article>
+      <article class="wc-step">
+        <div class="wc-num">5</div>
+        <div>
+          <h3>Revenue and worth</h3>
+          <p>Ad revenue = pageviews / 1000 x country CPM. Finance and hosting names get a higher CPM; wiki, edu and news get a lower one. Site worth is 6x yearly ad revenue.</p>
+        </div>
+      </article>
+    </div>
+
+    <h2>What the numbers mean</h2>
+    <ul>
+      <li><strong>Daily / monthly / yearly visitors</strong> — modelled unique users, not Google Analytics.</li>
+      <li><strong>Pageviews</strong> — estimated impressions used for the ad formula.</li>
+      <li><strong>Ad revenue</strong> — display-ads style estimate. Subscriptions, affiliates and product sales are not included.</li>
+      <li><strong>Worth</strong> — a sale-value multiple, similar to public website-worth tools. Real deals vary.</li>
+    </ul>
+
+    <h2>What this is not</h2>
+    <p>WorthCheck is not AdSense, Google Analytics, Similarweb, SE Ranking or Alexa. Those products measure or sell traffic panels. We estimate from public rank and site facts so anyone can compare domains without an account.</p>
+    <p><a href="/?domain=wikipedia.org">Try a live report</a> · <a href="/faq">Read the FAQ</a></p>
+  </div>
+
+  <footer class="wc-foot">
+    <div class="wc-wrap">
+      <span>WorthCheck · public rank estimates · launched Sep 2026</span>
+      <nav class="wc-footnav">
+        <a href="/how-it-works">How it works</a>
+        <a href="/faq">FAQ</a>
+        <a href="/articles">Articles</a>
+        <a href="/about">About</a>
+        <a href="/privacy">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

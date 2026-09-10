@@ -154,44 +154,47 @@ async function analyze(domain) {
   }
 }
 
-$("search-form").addEventListener("submit", (e) => {
-  e.preventDefault();
-  analyze($("domain-input").value);
-});
-
-document.querySelectorAll("[data-demo]").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    $("domain-input").value = btn.dataset.demo;
-    analyze(btn.dataset.demo);
+if ($("search-form")) {
+  $("search-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    analyze($("domain-input").value);
   });
-});
 
-async function loadTops() {
-  try {
-    const res = await fetch("/api/topsites");
-    const rows = await res.json();
-    $("tops-body").innerHTML = rows.map((r, i) => `<tr data-domain="${esc(r.domain)}">
-      <td>${i + 1}</td>
-      <td><div class="wc-dom"><img src="${esc(r.favicon)}" width="16" height="16" alt="" /> ${esc(r.domain)}</div></td>
-      <td>#${full(r.rank)}</td>
-      <td>${num(r.dailyVisitors)}</td>
-      <td>${money(r.monthlyRevenue)}</td>
-      <td>${money(r.worth)}</td>
-    </tr>`).join("");
-    $("tops-body").querySelectorAll("tr").forEach((tr) => {
-      tr.addEventListener("click", () => {
-        $("domain-input").value = tr.dataset.domain;
-        analyze(tr.dataset.domain);
-      });
+  document.querySelectorAll("[data-demo]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      $("domain-input").value = btn.dataset.demo;
+      analyze(btn.dataset.demo);
     });
-  } catch {
-    $("tops-body").innerHTML = "<tr><td colspan='6'>Could not load top sites right now.</td></tr>";
-  }
-}
+  });
 
-loadTops();
-const q = new URLSearchParams(location.search).get("domain");
-if (q) {
-  $("domain-input").value = q;
-  analyze(q);
+  async function loadTops() {
+    if (!$("tops-body")) return;
+    try {
+      const res = await fetch("/api/topsites");
+      const rows = await res.json();
+      $("tops-body").innerHTML = rows.map((r, i) => `<tr data-domain="${esc(r.domain)}">
+        <td>${i + 1}</td>
+        <td><div class="wc-dom"><img src="${esc(r.favicon)}" width="16" height="16" alt="" /> ${esc(r.domain)}</div></td>
+        <td>#${full(r.rank)}</td>
+        <td>${num(r.dailyVisitors)}</td>
+        <td>${money(r.monthlyRevenue)}</td>
+        <td>${money(r.worth)}</td>
+      </tr>`).join("");
+      $("tops-body").querySelectorAll("tr").forEach((tr) => {
+        tr.addEventListener("click", () => {
+          $("domain-input").value = tr.dataset.domain;
+          analyze(tr.dataset.domain);
+        });
+      });
+    } catch {
+      $("tops-body").innerHTML = "<tr><td colspan='6'>Could not load top sites right now.</td></tr>";
+    }
+  }
+
+  loadTops();
+  const q = new URLSearchParams(location.search).get("domain");
+  if (q) {
+    $("domain-input").value = q;
+    analyze(q);
+  }
 }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" class="wc">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The data behind the numbers — Articles</title>
+  <link rel="stylesheet" href="/wc.css?v=4" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="wc-nav">
+    <div class="wc-wrap">
+      <a class="wc-brand" href="/"><span class="wc-logo">W</span> WorthCheck</a>
+      <div class="wc-links">
+        <a href="/how-it-works">How it works</a>
+        <a href="/faq">FAQ</a>
+        <a href="/articles">Articles</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+  </header>
+  <section class="wc-pagehero">
+    <div class="wc-wrap">
+      <p class="wc-kicker">Article</p>
+      <h1>The data behind the numbers</h1>
+      <p class="wc-meta">10 September 2026 · Data sources</p>
+    </div>
+  </section>
+  <div class="wc-wrap wc-prose">
+    <p>WorthCheck does not buy a clickstream panel. Each report is assembled from public APIs plus a published traffic curve.</p>
+    <h2>Tranco rank</h2>
+    <p>Tranco is a research ranking of popular websites. WorthCheck reads the current rank and up to 30 days of history. Daily visitors are modelled as 900 million divided by that rank. Rank 1 is Google-scale; rank 1,000 is far smaller.</p>
+    <h2>RDAP / WHOIS</h2>
+    <p>Registrar, created date, expiry, status and nameservers come from RDAP. Domain age can slightly raise or lower the model: very new sites are discounted; very old ones get a small CPM bump.</p>
+    <h2>DNS and geo</h2>
+    <p>Cloudflare DNS (or a local lookup) gives an A record. IP geolocation maps that host to country, city, ISP and organisation. Country selects the CPM table — US and CH pay more than IN or PK in this model.</p>
+    <h2>Homepage meta</h2>
+    <p>WorthCheck fetches the public homepage over HTTPS then HTTP, reads title and description, and records whether the site answered. That is reachability, not content scoring.</p>
+    <h2>Cache</h2>
+    <p>Successful lookups can stay in memory for about six hours so repeat searches do not hammer the same public APIs.</p>
+    <p><a href="/how-it-works">How it works</a> · <a href="/privacy">Privacy</a></p>
+  </div>
+  <footer class="wc-foot">
+    <div class="wc-wrap">
+      <span>WorthCheck · public rank estimates · launched Sep 2026</span>
+      <nav class="wc-footnav">
+        <a href="/how-it-works">How it works</a>
+        <a href="/faq">FAQ</a>
+        <a href="/articles">Articles</a>
+        <a href="/about">About</a>
+        <a href="/privacy">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

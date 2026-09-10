@@ -388,9 +388,36 @@ def nocache(resp):
     return resp
 
 
+PAGES = {
+    "/": "index.html",
+    "/how-it-works": "how-it-works.html",
+    "/faq": "faq.html",
+    "/privacy": "privacy.html",
+    "/about": "about.html",
+    "/articles": "articles.html",
+    "/articles/what-is-worthcheck": "articles/what-is-worthcheck.html",
+    "/articles/when-worthcheck-started": "articles/when-worthcheck-started.html",
+    "/articles/how-to-read-a-report": "articles/how-to-read-a-report.html",
+    "/articles/data-behind-the-numbers": "articles/data-behind-the-numbers.html",
+    "/articles/website-worth-formula": "articles/website-worth-formula.html",
+    "/articles/what-worthcheck-is-not": "articles/what-worthcheck-is-not.html",
+}
+
+
 @app.route("/")
-def home():
-    return nocache(send_from_directory(".", "index.html"))
+@app.route("/how-it-works")
+@app.route("/faq")
+@app.route("/privacy")
+@app.route("/about")
+@app.route("/articles")
+@app.route("/articles/<slug>")
+def pages(slug=None):
+    path = request.path.rstrip("/") or "/"
+    name = PAGES.get(path)
+    if not name:
+        return "Not found", 404
+    folder, filename = (".", name) if "/" not in name else name.rsplit("/", 1)
+    return nocache(send_from_directory(folder, filename))
 
 
 @app.route("/wc.css")
