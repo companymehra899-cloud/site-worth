@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" class="wc">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WorthCheck — Website Traffic, Worth and Estimated Earnings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/wc.css?v=3" />
+  <style>
+    html.wc, html.wc body {
+      display: block !important;
+      grid-template-columns: none !important;
+      background: #f6f3ec !important;
+      color: #16181d !important;
+      font-family: "DM Sans", Arial, Helvetica, sans-serif !important;
+      margin: 0 !important;
+    }
+  </style>
+</head>
+<body>
+  <header class="wc-nav">
+    <div class="wc-wrap">
+      <a class="wc-brand" href="/">
+        <span class="wc-logo">W</span>
+        WorthCheck
+      </a>
+      <div class="wc-links">
+        <a href="#how">How it works</a>
+        <a href="#tops">Top sites</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="wc-hero">
+    <div class="wc-wrap">
+      <p class="wc-kicker">Live rank + modelled traffic</p>
+      <h1>Calculate website worth, traffic and estimated earnings</h1>
+      <p class="wc-lead">
+        Enter any domain. We pull live Tranco global rank, WHOIS age, DNS and server location,
+        then estimate daily visitors, pageviews, monthly ad revenue and sale value.
+      </p>
+      <form id="search-form" class="wc-search">
+        <input id="domain-input" type="text" placeholder="wikipedia.org or https://nytimes.com" autocomplete="off" required />
+        <button type="submit" id="search-btn">Analyze traffic</button>
+      </form>
+      <p class="wc-chips">
+        Try:
+        <button class="wc-chip" type="button" data-demo="wikipedia.org">wikipedia.org</button>
+        <button class="wc-chip" type="button" data-demo="github.com">github.com</button>
+        <button class="wc-chip" type="button" data-demo="nytimes.com">nytimes.com</button>
+        <button class="wc-chip" type="button" data-demo="indiatimes.com">indiatimes.com</button>
+      </p>
+      <p id="status" class="wc-status" hidden></p>
+    </div>
+  </section>
+
+  <section id="report" class="wc-report" hidden>
+    <div class="wc-wrap" id="report-inner"></div>
+  </section>
+
+  <section id="tops" class="wc-section">
+    <div class="wc-wrap">
+      <h2>Popular websites</h2>
+      <p class="wc-sub">Estimated worth from live ranks</p>
+      <div class="wc-tablewrap" style="margin-top:14px">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Domain</th>
+              <th>Rank</th>
+              <th>Daily visitors</th>
+              <th>Monthly ads</th>
+              <th>Estimated worth</th>
+            </tr>
+          </thead>
+          <tbody id="tops-body">
+            <tr><td colspan="6">Loading live ranks...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="wc-section wc-how">
+    <div class="wc-wrap">
+      <h2>How estimates are calculated</h2>
+      <div class="wc-howgrid">
+        <article class="wc-card">
+          <h3>1. Live global rank</h3>
+          <p>Tranco publishes a research ranking of the most visited websites. Rank 1 is roughly Google-scale traffic.</p>
+        </article>
+        <article class="wc-card">
+          <h3>2. Traffic model</h3>
+          <p>Daily unique visitors are modelled as 900M / rank, then converted to pageviews with a typical pages-per-visit curve.</p>
+        </article>
+        <article class="wc-card">
+          <h3>3. Ad RPM / CPM</h3>
+          <p>Revenue uses country CPM from the site's server location, adjusted for finance/tech vs wiki/news niches.</p>
+        </article>
+        <article class="wc-card">
+          <h3>4. Site worth</h3>
+          <p>Sale value is estimated at 6x yearly ad revenue, the same style of multiple public worth tools use.</p>
+        </article>
+      </div>
+      <p class="wc-note">
+        These numbers are estimates for research and comparison. They are not Google Analytics, AdSense or SE Ranking paid data.
+        Actual earnings depend on ads, subscriptions, SEO, geography and conversion.
+      </p>
+    </div>
+  </section>
+
+  <footer class="wc-foot">
+    <div class="wc-wrap">
+      WorthCheck · estimates from public rank, WHOIS and geo data · not affiliated with SiteWorthTraffic or SE Ranking
+    </div>
+  </footer>
+  <script src="/app.js?v=3"></script>
+</body>
+</html>
